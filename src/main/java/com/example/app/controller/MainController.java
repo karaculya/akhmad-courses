@@ -1,5 +1,6 @@
 package com.example.app.controller;
 
+import com.example.app.dto.CourseDto;
 import com.example.app.entity.Course;
 import com.example.app.entity.Professor;
 import com.example.app.service.CourseService;
@@ -24,7 +25,7 @@ public class MainController {
     }
 
     @GetMapping("/course/{id}")
-    public Course getCourse(@PathVariable Long id){
+    public CourseDto getCourse(@PathVariable Long id){
         return courseService.getCourse(id);
     }
 }
