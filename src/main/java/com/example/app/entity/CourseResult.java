@@ -22,9 +22,9 @@ public class CourseResult {
     @ManyToOne
     @JoinColumn(name = "student_id")
     private Student student;
-    @OneToMany(mappedBy = "course_result")
+    @OneToMany(mappedBy = "courseResult")
     private Set<TaskResult> taskResults;
-    @OneToMany(mappedBy = "course_result")
+    @OneToMany(mappedBy = "courseResult")
     private Set<TestResult> testResults;
 
 }

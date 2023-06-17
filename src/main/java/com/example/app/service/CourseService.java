@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class CourseService {
     private final CourseRepository repository;
+    public Course getCourse(Long id) {
+        return repository.findById(id).orElse(null);
+    }
 
     public void showCourses() {
         Iterable<Course> courses = repository.findAll();

@@ -28,6 +28,7 @@ public class Student {
     @ManyToOne
     @JoinColumn(name = "course_id")
     private Course course;
-    @OneToMany(mappedBy = "course_result")
+    @JsonIgnore
+    @OneToMany(mappedBy = "student")
     private List<CourseResult> results;
 }

@@ -13,8 +13,6 @@ public class TestResult {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-//    @Max(5)
-//    @Min(1)
     private int mark;
     @JsonIgnore
     @OneToOne
@@ -22,5 +20,5 @@ public class TestResult {
     private Test test;
     @JsonIgnore
     @ManyToOne
-    private CourseResult result;
+    private CourseResult courseResult;
 }

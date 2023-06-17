@@ -15,7 +15,7 @@ public class Test {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    //    private List<String> questions;
+//    private List<String> questions;
 //    private List<String> answerOptions;
     @JsonIgnore
     @ManyToOne

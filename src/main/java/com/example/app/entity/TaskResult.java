@@ -20,5 +20,5 @@ public class TaskResult {
     private Task task;
     @JsonIgnore
     @ManyToOne
-    private CourseResult result;
+    private CourseResult courseResult;
 }
