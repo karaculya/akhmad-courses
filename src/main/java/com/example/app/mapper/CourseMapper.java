@@ -11,17 +11,19 @@ import static java.util.stream.Collectors.toList;
 
 public class CourseMapper {
 
-    static public CourseDto toDto(Course course) {
-
+    static public CourseDto toDto(Course course, Boolean includeStudents) {
         if (isNull(course))
             return null;
 
-        return new CourseDto(
-                course.getId(),
-                course.getCourseName(),
-                course.getDescription(),
-                course.getStudents().stream().map(StudentMapper::toDto).collect(toList())
-        );
+        CourseDto courseDto = new CourseDto();
+        courseDto.setId(course.getId());
+        courseDto.setCourseName(course.getCourseName());
+        courseDto.setDescription(course.getDescription());
+        if (includeStudents)
+            courseDto.setStudents(course.getStudents().stream()
+                    .map(StudentMapper::toDto)
+                    .collect(toList()));
+        return courseDto;
     }
 
 }

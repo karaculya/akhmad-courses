@@ -20,23 +20,19 @@ public class Course {
     private Long id;
     private String courseName;
     private String description;
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "professor_id")
     private Professor professor;
-    @OneToMany(mappedBy = "course", fetch = FetchType.EAGER)
-    @Fetch(FetchMode.JOIN)
+    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
+    @Fetch(FetchMode.SUBSELECT)
     private List<Student> students;
-    @OneToMany(mappedBy = "course", fetch = FetchType.EAGER)
-    @Fetch(FetchMode.JOIN)
+    @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
+    @Fetch(FetchMode.SUBSELECT)
     private List<Lesson> lessons;
-    @JsonIgnore
     @OneToMany(mappedBy = "course")
-    private Set<Task> tasks;
-    @JsonIgnore
+    private List<Task> tasks;
     @OneToMany(mappedBy = "course")
-    private Set<Test> tests;
-    @JsonIgnore
+    private List<Test> tests;
     @OneToOne
     private CourseResult result;
 

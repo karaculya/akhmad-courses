@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -18,13 +19,12 @@ public class CourseResult {
     private int mark;
     @OneToOne
     private Course course;
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "student_id")
     private Student student;
     @OneToMany(mappedBy = "courseResult")
-    private Set<TaskResult> taskResults;
+    private List<TaskResult> taskResults;
     @OneToMany(mappedBy = "courseResult")
-    private Set<TestResult> testResults;
+    private List<TestResult> testResults;
 
 }

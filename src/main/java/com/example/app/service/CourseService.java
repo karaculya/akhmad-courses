@@ -16,7 +16,7 @@ public class CourseService {
     public CourseDto getCourse(Long id) {
         Course course = repository.findById(id).orElse(null);
 
-        return CourseMapper.toDto(course);
+        return CourseMapper.toDto(course, false);
     }
 
     public void showCourses() {
