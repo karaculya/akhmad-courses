@@ -14,11 +14,9 @@ public class TaskResult {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private int mark;
-    @JsonIgnore
     @OneToOne
     @JoinColumn(name = "task_id")
     private Task task;
-    @JsonIgnore
     @ManyToOne
     private CourseResult courseResult;
 }

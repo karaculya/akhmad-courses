@@ -18,7 +18,6 @@ public class Task {
     private String taskName;
     private String benchmarkData;
     private File templateFile;
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "course_id")
     private Course course;

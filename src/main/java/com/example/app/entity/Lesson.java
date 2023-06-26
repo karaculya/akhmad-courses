@@ -18,7 +18,6 @@ public class Lesson {
     private String lessonName;
     private String description;
     private File lessonFile;
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "course_id")
     private Course course;

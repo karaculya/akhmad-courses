@@ -14,11 +14,9 @@ public class TestResult {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private int mark;
-    @JsonIgnore
     @OneToOne
     @JoinColumn(name = "test_id")
     private Test test;
-    @JsonIgnore
     @ManyToOne
     private CourseResult courseResult;
 }

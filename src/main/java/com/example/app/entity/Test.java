@@ -17,7 +17,6 @@ public class Test {
     private Long id;
 //    private List<String> questions;
 //    private List<String> answerOptions;
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "course_id")
     private Course course;
