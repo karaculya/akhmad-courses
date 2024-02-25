@@ -17,15 +17,12 @@ public class MainController {
     private final CourseService courseService;
 
     @GetMapping("/professor/{id}")
-    public ProfessorDto getProfessor(
-            @PathVariable Long id,
-            @RequestParam(required = false, defaultValue = "false") Boolean includeStudents
-    ) {
-        return professorService.getProfessor(id, includeStudents);
+    public ProfessorDto getProfessor(@PathVariable Long id) {
+        return professorService.getProfessor(id);
     }
 
     @PostMapping("/professor")
-    public ProfessorDto saveProfessor(@RequestBody ProfessorRequestDto professorDto){
+    public ProfessorDto saveProfessor(@RequestBody ProfessorDto professorDto){
         return professorService.saveProfessor(professorDto);
     }
 

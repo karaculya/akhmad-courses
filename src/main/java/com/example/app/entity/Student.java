@@ -1,8 +1,6 @@
 package com.example.app.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import jdk.dynalink.linker.LinkerServices;
 import lombok.Getter;
 import lombok.Setter;
 

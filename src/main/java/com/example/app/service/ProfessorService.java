@@ -13,16 +13,17 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class ProfessorService {
     private final ProfessorRepository repository;
+    private final ProfessorMapper mapper;
 
-    public ProfessorDto getProfessor(Long id, Boolean includeStudents){
+    public ProfessorDto getProfessor(Long id){
         Professor professor = repository.findProfessorById(id).orElse(null);
-        return ProfessorMapper.toDto(professor, includeStudents);
+        return mapper.toDto(professor);
     }
 
     @Transactional
-    public ProfessorDto saveProfessor(ProfessorRequestDto professorDto){
-        Professor professor = ProfessorMapper.toEntity(professorDto);
+    public ProfessorDto saveProfessor(ProfessorDto professorDto){
+        Professor professor = mapper.toEntity(professorDto);
         Professor saved = repository.save(professor);
-        return ProfessorMapper.toDto(saved, true);
+        return mapper.toDto(saved);
     }
 }

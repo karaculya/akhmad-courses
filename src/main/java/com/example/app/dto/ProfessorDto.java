@@ -1,10 +1,7 @@
 package com.example.app.dto;
 
-import com.example.app.entity.Course;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.example.app.entity.*;
+import lombok.*;
 
 import java.util.List;
 
@@ -16,5 +13,9 @@ public class ProfessorDto {
     private Long id;
     private String fio;
     private String email;
-    private List<CourseDto> courses;
+    private Professor professor;
+    private List<Student> students;
+    private List<Lesson> lessons;
+    private List<Test> tests;
+    private CourseResult result;
 }
