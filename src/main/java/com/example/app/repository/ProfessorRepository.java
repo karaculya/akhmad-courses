@@ -1,6 +1,6 @@
 package com.example.app.repository;
 
-import com.example.app.entity.Professor;
+import com.example.app.model.entity.Professor;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

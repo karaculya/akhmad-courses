@@ -1,17 +1,14 @@
 package com.example.app.service;
 
-import com.example.app.dto.CourseDto;
-import com.example.app.entity.Course;
-import com.example.app.mapper.CourseListMapper;
-import com.example.app.mapper.CourseMapper;
+import com.example.app.model.dto.CourseDto;
+import com.example.app.model.mapper.CourseListMapper;
+import com.example.app.model.mapper.CourseMapper;
 import com.example.app.repository.CourseRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
-import static java.util.Objects.isNull;
 
 @Slf4j
 @Service
