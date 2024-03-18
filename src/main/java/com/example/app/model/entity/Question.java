@@ -14,13 +14,14 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Test {
+public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private String questionStr;
     @OneToMany
-    private List<Question> questions;
-//    @OneToMany
-//    private TestResult result;
+    private List<AnswerOption> answerOptions;
+    private String correctAnswer;
+    @ManyToOne
+    private Test test;
 }

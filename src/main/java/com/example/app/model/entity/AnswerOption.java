@@ -1,21 +1,22 @@
 package com.example.app.model.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
+@Table
 @Getter
 @Setter
-@Table
-public class TestResult {
+@AllArgsConstructor
+@NoArgsConstructor
+public class AnswerOption {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int mark;
-    @OneToOne
-    @JoinColumn(name = "test_id")
-    private Test test;
+    private String answer;
     @ManyToOne
-    private CourseResult courseResult;
+    private Question question;
 }

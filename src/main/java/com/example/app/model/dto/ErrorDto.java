@@ -11,12 +11,12 @@ import java.util.Map;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ErorrDto {
+public class ErrorDto {
     private String code;
     private String message;
     private Map<String, String> extended;
 
-    public ErorrDto(String code, String message) {
+    public ErrorDto(String code, String message) {
         this.code = code;
         this.message = message;
     }

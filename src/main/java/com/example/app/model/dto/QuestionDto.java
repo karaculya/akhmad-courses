@@ -1,6 +1,5 @@
 package com.example.app.model.dto;
 
-import com.example.app.model.entity.Student;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,8 +11,9 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class GroupDto {
-    private Long id;
-    private String groupName;
-    private List<Student> students;
+public class QuestionDto {
+    private String questionStr;
+    private List<String> answerOptions;
+    private String correctAnswer;
+    private UserDto userData;
 }
