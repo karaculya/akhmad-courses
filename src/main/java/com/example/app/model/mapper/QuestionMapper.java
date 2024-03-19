@@ -6,7 +6,6 @@ import com.example.app.model.entity.Question;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class QuestionMapper {
     public static List<QuestionDto> toDto(List<Question> entityList) {

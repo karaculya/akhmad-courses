@@ -1,15 +1,15 @@
 spring:
   datasource:
-#    url: jdbc:h2:mem:mydb
+    #    url: jdbc:h2:mem:mydb
     url: jdbc:h2:file:./db
     username: sa
     password: 123
     driverClassName: org.h2.Driver
   liquibase:
     enabled: true
-    drop-first: false
+    drop-first: true
     default-schema: public
-    change-log: classpath:/db/changelog/accumulate-changelog.yaml
+    change-log: classpath:/db/changelog.yaml
     url: jdbc:h2:file:./db
     user: sa
     password: 123
@@ -17,7 +17,7 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: none
   h2:
     console:
       enabled: true

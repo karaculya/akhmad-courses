@@ -3,8 +3,12 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
-    <include file="accumulate-changelog.yaml" relativeToChangelogFile="true"/>
+    <changeSet id="8" author="karina">
+        <preConditions onFail="MARK_RAN">
+            <tableIsEmpty tableName="test_result"/>
+        </preConditions>
 
-<!--    <include file="changeset/create-test-table.yaml" relativeToChangelogFile="true"/>-->
+        <loadData tableName="test_result" file="db/changelog/data/result.csv"/>
+    </changeSet>
 
 </databaseChangeLog>

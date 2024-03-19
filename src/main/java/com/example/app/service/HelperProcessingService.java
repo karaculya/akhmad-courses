@@ -8,10 +8,11 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class HelperProcessingService {
+class HelperProcessingService {
     private final QuestionService questionService;
+    private final TestResultService resultService;
 
-    public int processEnglishTest(TestDto dto) {
+    int processEnglishTest(TestDto dto) {
         int mark = 0;
 
         for (int answer : dto.getResult().getUserData().getAnswers()) {
@@ -26,7 +27,7 @@ public class HelperProcessingService {
         return mark;
     }
 
-    public String processKeirseyTest(TestDto dto) {
+    String processKeirseyTest(TestDto dto) {
         char[] res = new char[4];
 
         res[0] = getType(1, 0, dto) ? 'E' : 'I';
@@ -34,10 +35,10 @@ public class HelperProcessingService {
         res[2] = getType(4, 5, dto) ? 'T' : 'F';
         res[3] = getType(6, 7, dto) ? 'J' : 'P';
 
-        return String.valueOf(res);
+        return resultService.getKeirseyTestResult(String.valueOf(res));
     }
 
-    public int processMotivationalTest(int[] answers) {
+    String processMotivationalTest(Long id, int[] answers) {
         int[][] template = {
                 {1, 2, 3, 4, 5},
                 {3, 2, 5, 4, 1},
@@ -55,10 +56,10 @@ public class HelperProcessingService {
                 {4, 3, 2, 1, 5},
         };
 
-        return getType(answers, template);
+        return resultService.getTestResult(id, String.valueOf(getType(answers, template)));
     }
 
-    public int processTomasTest(int[] answers) {
+    String processTomasTest(Long id, int[] answers) {
         int[][] template = {
                 {0, 0, 0, 1, 2},
                 {0, 2, 1, 0, 0},
@@ -91,7 +92,7 @@ public class HelperProcessingService {
                 {0, 0, 1, 2, 0},
                 {0, 2, 0, 0, 1},
         };
-        return getType(answers, template);
+        return resultService.getTestResult(id, String.valueOf(getType(answers, template)));
     }
 
     private boolean getType(int k, int n, TestDto dto) {

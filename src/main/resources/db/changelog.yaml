@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/1_test.sql
+  - include:
+      file: db/changelog/2_question.sql
+  - include:
+      file: db/changelog/3_answer-option.sql
+  - include:
+      file: db/changelog/4_test-result.sql
+  - include:
+      file: db/changelog/5_insert-data-test.xml
+  - include:
+      file: db/changelog/6_insert-data-question.xml
+  - include:
+      file: db/changelog/7_insert-data-answer.xml
+  - include:
+      file: db/changelog/8_insert-data-result.xml

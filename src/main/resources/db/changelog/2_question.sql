@@ -1,9 +1,9 @@
 --liquibase formatted sql
 
---changeset nikita:1 endDelimiter:/
+--changeset karina:2 endDelimiter:/
 
 CREATE TABLE QUESTION(
-    ID BIGINT NOT NULL PRIMARY KEY,
+    ID BIGINT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     QUESTION VARCHAR(255) NOT NULL,
     CORRECT_ANSWER INT,
     TEST_ID BIGINT NOT NULL,

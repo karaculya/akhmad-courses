@@ -1,11 +1,9 @@
 package com.example.app.service;
 
-import com.example.app.exception.LackDataException;
-import com.example.app.exception.NotFoundException;
-import com.example.app.model.dto.TestResultDto;
-import com.example.app.model.mapper.TestMapper;
 import com.example.app.model.dto.TestDto;
+import com.example.app.model.dto.TestResultDto;
 import com.example.app.model.entity.Test;
+import com.example.app.model.mapper.TestMapper;
 import com.example.app.repository.TestRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,14 +18,14 @@ public class TestService {
 
     public TestDto getTest(Long id) {
         Optional<Test> test = testRepository.findById(id);
-        if (!test.isPresent()) throw new NotFoundException();
+        if (!test.isPresent()) throw new RuntimeException("Not found. Sorry :c");
         return TestMapper.toDto(test.get());
     }
 
 
     public void saveTest(TestDto testDto) {
         if (testDto.getQuestions() == null || testDto.getQuestions().isEmpty())
-            throw new LackDataException();
+            throw new RuntimeException("Сould not be found");
         testRepository.save(TestMapper.toEntity(testDto));
     }
 
@@ -45,18 +43,18 @@ public class TestService {
         return result;
     }
 
-    public TestResultDto takeMotivationalTest(TestDto dto) {
+    public TestResultDto takeMotivationalTest(Long id, TestDto dto) {
         TestResultDto result = new TestResultDto();
         result.setUserData(dto.getResult().getUserData());
-        result.setResult("Ваш тип мотивации - " + processingService.processMotivationalTest(dto.getResult().getUserData().getAnswers()));
+        result.setResult(processingService.processMotivationalTest(id, dto.getResult().getUserData().getAnswers()));
 
         return result;
     }
 
-    public TestResultDto takeTomasTest(TestDto dto) {
+    public TestResultDto takeTomasTest(Long id, TestDto dto) {
         TestResultDto result = new TestResultDto();
         result.setUserData(dto.getResult().getUserData());
-        result.setResult("результат - " + processingService.processTomasTest(dto.getResult().getUserData().getAnswers()));
+        result.setResult(processingService.processTomasTest(id, dto.getResult().getUserData().getAnswers()));
         return result;
     }
 }

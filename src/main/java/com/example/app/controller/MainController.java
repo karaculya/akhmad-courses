@@ -35,13 +35,13 @@ public class MainController {
         return ResponseEntity.status(HttpStatus.OK).body(testService.takeKeirseyTest(dto));
     }
 
-    @GetMapping("/motivational-test")
-    public ResponseEntity<TestResultDto> takeMotivationalTest(TestDto dto) {
-        return ResponseEntity.status(HttpStatus.OK).body(testService.takeMotivationalTest(dto));
+    @GetMapping("/{id}/motivational-test")
+    public ResponseEntity<TestResultDto> takeMotivationalTest(@PathVariable Long id, TestDto dto) {
+        return ResponseEntity.status(HttpStatus.OK).body(testService.takeMotivationalTest(id, dto));
     }
 
-    @GetMapping("/tomas-test")
-    public ResponseEntity<TestResultDto> takeTomasTest(TestDto dto) {
-        return ResponseEntity.status(HttpStatus.OK).body(testService.takeTomasTest(dto));
+    @GetMapping("/{id}/tomas-test")
+    public ResponseEntity<TestResultDto> takeTomasTest(@PathVariable Long id, TestDto dto) {
+        return ResponseEntity.status(HttpStatus.OK).body(testService.takeTomasTest(id, dto));
     }
 }
