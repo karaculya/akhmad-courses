@@ -1,0 +1,87 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_test_table
+      author: karina
+      changes:
+        - createTable:
+            tableName: test
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                    primaryKeyName: test_type
+              - column:
+                  name: name
+                  type: VARCHAR(155)
+                  constraints:
+                    nullable: false
+#        - createTable:
+#            tableName: question
+#            columns:
+#              - column:
+#                  name: id
+#                  type: BIGINT
+#                  autoIncrement: true
+#                  constraints:
+#                    primaryKey: true
+#                    nullable: false
+#                    primaryKeyName: question_id
+#              - column:
+#                  name: question
+#                  type: VARCHAR(255)
+#                  constraints:
+#                    unique: true
+#                    nullable: false
+#              - column:
+#                  name: correct_answer
+#                  type: integer
+#              - column:
+#                  name: test_id
+#                  type: BIGHT
+#                  constrains:
+#                    nullable: false
+#        - createTable:
+#            tableName: answer_option
+#            columns:
+#              - column:
+#                  name: id
+#                  type: BIGINT
+#                  autoIncrement: true
+#                  constraints:
+#                    primaryKey: true
+#                    nullable: false
+#                    primaryKeyName: answer_option_id
+#              - column:
+#                  name: answer
+#                  type: integer
+#              - column:
+#                  name: question_id
+#                  type: BIGHT
+#                  constrains:
+#                    nullable: false
+#        - createTable:
+#            tableName: test_result
+#            columns:
+#              - column:
+#                  name: id
+#                  type: BIGINT
+#                  autoIncrement: true
+#                  constraints:
+#                    primaryKey: true
+#                    nullable: false
+#                    primaryKeyName: test_result_id
+#              - column:
+#                  name: result
+#                  type: VARCHAR(255)
+#                  constraints:
+#                    unique: true
+#                    nullable: false
+#              - column:
+#                  name: test_id
+#                  type: BIGHT
+#                  constrains:
+#                    nullable: false

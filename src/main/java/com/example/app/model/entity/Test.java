@@ -19,8 +19,8 @@ public class Test {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "test")
     private List<Question> questions;
-//    @OneToMany
-//    private TestResult result;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "test")
+    private List<TestResult> results;
 }

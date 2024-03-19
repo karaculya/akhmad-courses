@@ -6,22 +6,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @Entity
 @Table
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Question {
+public class TestResult {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String questionStr;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "question")
-    private List<AnswerOption> answerOptions;
-    private int correctAnswer;
+    private String result;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "test_id")
     private Test test;

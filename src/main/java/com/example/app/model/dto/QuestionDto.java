@@ -14,6 +14,5 @@ import java.util.List;
 public class QuestionDto {
     private String questionStr;
     private List<String> answerOptions;
-    private String correctAnswer;
-    private UserDto userData;
+    private int correctAnswer;
 }

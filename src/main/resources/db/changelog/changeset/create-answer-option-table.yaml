@@ -1,0 +1,27 @@
+databaseChangeLog:
+  - changeSet:
+      id: create_answer_option_table
+      author: karina
+      comment: create-answer-options-table
+      changes:
+        - createTable:
+            tableName: answer_option
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+                    primaryKeyName: answer_option_type
+              - column:
+                  name: answer
+                  type: integer
+              - column:
+                  name: question_id
+                  type: BIGHT
+                  constrains:
+                    foreignKeyName: test_answer_option_fk
+                    referencedTableName: author
+                    referencedColumnNames: id

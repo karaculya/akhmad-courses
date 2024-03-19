@@ -1,0 +1,13 @@
+databaseChangeLog:
+#  - include:
+#      file: create-test-table.yaml
+#      relativeToChangelogFile: true
+  - include:
+      file: D:\Загрузки\akhmad-courses\src\main\resources\db\changelog\changeset\2_question.sql
+#      relativeToChangelogFile: true
+#  - include:
+#      file: create-test-result-table.yaml
+#      relativeToChangelogFile: true
+#  - include:
+#      file: create-answer-option-table.yaml
+#      relativeToChangelogFile: true

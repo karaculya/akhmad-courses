@@ -1,10 +1,23 @@
 spring:
   datasource:
-    url: jdbc:h2:mem:mydb
+#    url: jdbc:h2:mem:mydb
+    url: jdbc:h2:file:./db
     username: sa
-    password: password
+    password: 123
     driverClassName: org.h2.Driver
+  liquibase:
+    enabled: true
+    drop-first: false
+    default-schema: public
+    change-log: classpath:/db/changelog/accumulate-changelog.yaml
+    url: jdbc:h2:file:./db
+    user: sa
+    password: 123
   jpa:
-    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+    hibernate:
+      ddl-auto: create
   h2:
-    console.enabled: true
+    console:
+      enabled: true

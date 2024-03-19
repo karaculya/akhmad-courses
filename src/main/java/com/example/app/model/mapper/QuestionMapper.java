@@ -11,15 +11,15 @@ import java.util.stream.Collectors;
 public class QuestionMapper {
     public static List<QuestionDto> toDto(List<Question> entityList) {
         List<QuestionDto> dtoList = new ArrayList<>();
-        for (Question entity : entityList) {
-            dtoList.add(new QuestionDto(
-                    entity.getQuestionStr(),
-                    entity.getAnswerOptions().stream()
-                            .map(AnswerOption::getAnswer)
-                            .collect(Collectors.toList()),
-                    entity.getCorrectAnswer(),
-                    null));
-        }
+//        for (Question entity : entityList) {
+//            dtoList.add(new QuestionDto(
+//                    entity.getQuestionStr(),
+//                    entity.getAnswerOptions().stream()
+//                            .map(AnswerOption::getAnswer)
+//                            .collect(Collectors),
+//                    entity.getCorrectAnswer()
+//            ));
+//        }
         return dtoList;
     }
 
@@ -29,11 +29,11 @@ public class QuestionMapper {
             Question question = new Question();
             question.setQuestionStr(dto.getQuestionStr());
             List<AnswerOption> answerOptions = new ArrayList<>();
-            for (String ans: dto.getAnswerOptions()) {
-                AnswerOption answerOption = new AnswerOption();
-                answerOption.setAnswer(ans);
-                answerOptions.add(answerOption);
-            }
+//            for (int ans: dto.getAnswerOptions()) {
+//                AnswerOption answerOption = new AnswerOption();
+//                answerOption.setAnswer(ans);
+//                answerOptions.add(answerOption);
+//            }
             question.setAnswerOptions(answerOptions);
             question.setCorrectAnswer(dto.getCorrectAnswer());
             entityList.add(question);

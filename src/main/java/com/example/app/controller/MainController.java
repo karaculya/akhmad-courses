@@ -4,6 +4,8 @@ import com.example.app.model.dto.TestDto;
 import com.example.app.model.dto.TestResultDto;
 import com.example.app.service.TestService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -14,8 +16,8 @@ public class MainController {
     private final TestService testService;
 
     @GetMapping("/{id}")
-    public TestDto getTest(@PathVariable Long id) {
-        return testService.getTest(id);
+    public ResponseEntity<TestDto> getTest(@PathVariable Long id) {
+        return ResponseEntity.status(HttpStatus.OK).body(testService.getTest(id));
     }
 
     @PostMapping
@@ -24,22 +26,22 @@ public class MainController {
     }
 
     @GetMapping("/english-test")
-    public TestResultDto takeEnglishTest(TestDto dto) {
-        return testService.takeEnglishTest(dto);
+    public ResponseEntity<TestResultDto> takeEnglishTest(TestDto dto) {
+        return ResponseEntity.status(HttpStatus.OK).body(testService.takeEnglishTest(dto));
     }
 
     @GetMapping("/keirsey-test")
-    public TestResultDto takeKeirseyTest(TestDto dto) {
-        return testService.takeKeirseyTest(dto);
+    public ResponseEntity<TestResultDto> takeKeirseyTest(TestDto dto) {
+        return ResponseEntity.status(HttpStatus.OK).body(testService.takeKeirseyTest(dto));
     }
 
     @GetMapping("/motivational-test")
-    public TestResultDto takeMotivationalTest(TestDto dto) {
-        return testService.takeMotivationalTest(dto);
+    public ResponseEntity<TestResultDto> takeMotivationalTest(TestDto dto) {
+        return ResponseEntity.status(HttpStatus.OK).body(testService.takeMotivationalTest(dto));
     }
 
     @GetMapping("/tomas-test")
-    public TestResultDto takeTomasTest(TestDto dto) {
-        return null;
+    public ResponseEntity<TestResultDto> takeTomasTest(TestDto dto) {
+        return ResponseEntity.status(HttpStatus.OK).body(testService.takeTomasTest(dto));
     }
 }

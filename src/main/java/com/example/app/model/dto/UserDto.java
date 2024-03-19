@@ -13,5 +13,5 @@ import java.util.List;
 @NoArgsConstructor
 public class UserDto {
     private String userName;
-    private List<String> answers;
+    private int[] answers;
 }

@@ -12,6 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TestDto {
+    private String name;
     private List<QuestionDto> questions;
     private TestResultDto result;
 }
