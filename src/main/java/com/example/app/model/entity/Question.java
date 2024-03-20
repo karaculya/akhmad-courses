@@ -18,7 +18,7 @@ public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String questionStr;
+    private String question;
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "question")
     private List<AnswerOption> answerOptions;
     private int correctAnswer;

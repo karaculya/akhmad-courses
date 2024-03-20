@@ -1,6 +1,5 @@
 package com.example.app.service;
 
-import com.example.app.model.dto.QuestionDto;
 import com.example.app.model.entity.Question;
 import com.example.app.repository.QuestionRepository;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +12,7 @@ public class QuestionService {
 
     Question findByQuestionStr(String s) {
         for (Question question : repository.findAll()) {
-            if (question.getQuestionStr().equals(s))
+            if (question.getQuestion().equals(s))
                 return question;
         }
         return null;

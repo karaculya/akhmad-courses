@@ -32,7 +32,7 @@ public class TestService {
     public TestResultDto takeEnglishTest(TestDto dto) {
         TestResultDto result = new TestResultDto();
         result.setUserData(dto.getResult().getUserData());
-        result.setResult("Вы набрали " + processingService.processEnglishTest(dto) + "баллов из 10");
+        result.setResult("Вы набрали " + processingService.processEnglishTest(dto) + " баллов из 10");
         return result;
     }
 

@@ -15,12 +15,11 @@ class HelperProcessingService {
     int processEnglishTest(TestDto dto) {
         int mark = 0;
 
-        for (int answer : dto.getResult().getUserData().getAnswers()) {
-            for (QuestionDto question : dto.getQuestions()) {
-                Question questionEntity = questionService.findByQuestionStr(question.getQuestionStr());
-                if (questionEntity != null && questionEntity.getCorrectAnswer() == answer) {
-                    mark++;
-                }
+        for (int i = 0; i < dto.getResult().getUserData().getAnswers().length; i++) {
+            Question questionEntity = questionService.findByQuestionStr(dto.getQuestions().get(i).getQuestion());
+            if (questionEntity != null &&
+                    questionEntity.getCorrectAnswer() == dto.getResult().getUserData().getAnswers()[i]) {
+                mark++;
             }
         }
 
@@ -99,7 +98,7 @@ class HelperProcessingService {
         int a = 0, b = 0;
         if (n != 0) {
             for (int i = k, j = n; i < 70 && j < 70; i += 7, j += 7) {
-                Question questionEntity = questionService.findByQuestionStr(dto.getQuestions().get(i).getQuestionStr());
+                Question questionEntity = questionService.findByQuestionStr(dto.getQuestions().get(i).getQuestion());
                 if (questionEntity != null) {
                     if (questionEntity.getCorrectAnswer() == dto.getResult().getUserData().getAnswers()[i]
                             || questionEntity.getCorrectAnswer() == dto.getResult().getUserData().getAnswers()[j])
@@ -109,7 +108,7 @@ class HelperProcessingService {
             }
         } else {
             for (int i = k; i < 70; i += 7) {
-                Question questionEntity = questionService.findByQuestionStr(dto.getQuestions().get(i).getQuestionStr());
+                Question questionEntity = questionService.findByQuestionStr(dto.getQuestions().get(i).getQuestion());
                 if (questionEntity != null) {
                     if (questionEntity.getCorrectAnswer() == dto.getResult().getUserData().getAnswers()[i])
                         a++;

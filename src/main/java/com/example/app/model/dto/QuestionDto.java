@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class QuestionDto {
-    private String questionStr;
+    private String question;
     private List<String> answerOptions;
     private int correctAnswer;
 }
